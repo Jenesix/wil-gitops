@@ -1,6 +1,6 @@
 community:
   enabled: true
-  
+
 monitoringPasscodeSecretName: sonarqube-monitoring-passcode
 monitoringPasscodeSecretKey: passcode
 
@@ -27,5 +27,5 @@ resources:
     cpu: "1"
     memory: "2Gi"
   requests:
-    cpu: "500m"
-    memory: "1Gi"
+    cpu: "100m"      # ← ลดจาก 500m
+    memory: "512Mi"  # ← ลดจาก 1Gi
