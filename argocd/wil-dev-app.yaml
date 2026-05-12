@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wil-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/myorg/wil-gitops
+    targetRevision: HEAD
+    path: apps/wil          # ← ตอนทำ helm chart แล้วค่อยชี้มาที่นี่
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: wil-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
