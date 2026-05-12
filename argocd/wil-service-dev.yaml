@@ -1,15 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wil-service-dev        # ← ชัดขึ้น
+  name: wil-service-dev
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/jenesix/wil-gitops   # ← เอา่ ออก
+    repoURL: https://github.com/jenesix/wil-gitops
     targetRevision: HEAD
-    path: apps/wil-service     # ← แก้จาก apps/wil
+    path: apps/wil-service
     helm:
+      releaseName: wil-service-dev
       valueFiles:
         - values.yaml
         - values-dev.yaml
