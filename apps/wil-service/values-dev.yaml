@@ -11,4 +11,3 @@ extraEnv:
   COMMIT_ID: "abc1234"
   NODE_ENV: development
   DB_HOST: "postgresql.wil-dev.svc.cluster.local"
-  JWT_SECRET: "your-super-secret-key-change-this"
