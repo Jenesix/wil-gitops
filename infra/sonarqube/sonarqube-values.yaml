@@ -1,4 +1,5 @@
-monitoringPasscode: "my-secure-passcode"
+monitoringPasscodeSecretName: sonarqube-monitoring-passcode
+monitoringPasscodeSecretKey: passcode
 
 ingress:
   enabled: true
