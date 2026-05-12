@@ -1,5 +1,5 @@
 image:
-  tag: "dev-abc1234"
+  tag: "dev-test"
 
 service:
   namespace: wil-dev
