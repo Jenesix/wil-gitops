@@ -23,9 +23,18 @@ persistence:
   size: 10Gi
 
 resources:
-  limits:
-    cpu: "1"
-    memory: "2Gi"
   requests:
-    cpu: "100m"      # ← ลดจาก 500m
-    memory: "512Mi"  # ← ลดจาก 1Gi
+    memory: "512Mi"
+    cpu: "50m"      # ← ลดจาก 100m
+  limits:
+    memory: "2Gi"
+    cpu: "1000m"
+
+postgresql:
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "50m"    # ← ลดลง
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
