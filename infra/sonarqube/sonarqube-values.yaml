@@ -24,17 +24,17 @@ persistence:
 
 resources:
   requests:
-    memory: "512Mi"
-    cpu: "50m"      # ← ลดจาก 100m
+    cpu: "50m"
+    memory: "256Mi"  # ← เพิ่ม
   limits:
-    memory: "2Gi"
     cpu: "1000m"
+    memory: "2Gi"
 
 postgresql:
   resources:
     requests:
-      memory: 128Mi"
-      cpu: "50m"    # ← ลดลง
+      cpu: "50m"
+      memory: "128Mi"  # ← เอา " ออก
     limits:
-      memory: "512Mi"
       cpu: "500m"
+      memory: "512Mi"
