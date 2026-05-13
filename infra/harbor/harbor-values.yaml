@@ -63,3 +63,53 @@ existingSecretAdminPasswordKey: "HARBOR_ADMIN_PASSWORD"
 
 trivy:
   enabled: false
+
+core:
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+
+portal:
+  resources:
+    requests:
+      cpu: "10m"
+      memory: "32Mi"
+    limits:
+      cpu: "200m"
+      memory: "256Mi"
+
+registry:
+  resources:
+    requests:
+      cpu: "10m"
+      memory: "64Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+
+database:
+  internal:
+    resources:
+      requests:
+        cpu: "20m"
+        memory: "64Mi"
+      limits:
+        cpu: "500m"
+        memory: "512Mi"
+
+redis:
+  internal:
+    resources:
+      requests:
+        cpu: "10m"
+        memory: "32Mi"
+      limits:
+        cpu: "200m"
+        memory: "256Mi"
+
+trivy:
+  enabled: false
