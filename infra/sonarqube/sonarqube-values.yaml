@@ -33,7 +33,7 @@ resources:
 postgresql:
   resources:
     requests:
-      memory: "256Mi"
+      memory: 128Mi"
       cpu: "50m"    # ← ลดลง
     limits:
       memory: "512Mi"
