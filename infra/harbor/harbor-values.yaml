@@ -60,3 +60,6 @@ persistence:
 harborAdminPassword: ""
 existingSecretAdminPassword: "harbor-admin-secret"
 existingSecretAdminPasswordKey: "HARBOR_ADMIN_PASSWORD"
+
+trivy:
+  enabled: false
