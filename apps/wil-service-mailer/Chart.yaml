@@ -1,0 +1,11 @@
+apiVersion: v2
+name: wil-service
+description: Wil Service Helm Chart
+version: 1.0.0
+appVersion: 1.0.0
+home: https://wil.phraya.net
+maintainers:
+  - name: Wil
+    email: ci-bot@wil.phraya.net
+sources:
+  - https://github.com/jenesix/wil-service-mailer

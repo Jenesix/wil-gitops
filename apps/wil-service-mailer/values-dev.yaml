@@ -1,0 +1,23 @@
+image:
+  tag: "dev-3e05a6ea"
+service:
+  namespace: wil-dev
+extraEnv:
+  COMMIT_ID: "3e05a6ea"
+  NODE_ENV: development
+  REDIS_URL: "redis.wil-dev.svc.cluster.local:6379"
+  SMTP_HOST: "mail.spacemail.com"
+  SMTP_PORT: "587"
+  SMTP_SECURE: "true"
+  SMTP_USER: "wil@phraya.net"
+  FROM_EMAIL: "wil@phraya.net"
+  EMAIL_RATE_LIMIT: "19"
+  EMAIL_RATE_DURATION: "3600000"
+
+extraEnvSecrets:
+  REDIS_PASSWORD:
+    secretName: wil-service-mailer-secrets
+    key: REDIS_PASSWORD
+  SMTP_PASS:
+    secretName: wil-service-mailer-secrets
+    key: SMTP_PASS

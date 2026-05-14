@@ -1,0 +1,30 @@
+image:
+  repository: harbor.wil.phraya.net/wil/wil-service-mailer
+  tag: "latest"
+  pullSecrets: harbor-registry-secret
+
+service:
+  namespace: wil-dev
+  replicas: 1
+
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "10m"
+  limits:
+    memory: "256Mi"
+    cpu: "500m"
+
+extraEnv:
+  COMMIT_ID: ""
+  NODE_ENV: development
+  REDIS_URL: ""
+  REDIS_PASSWORD: ""
+  SMTP_HOST: ""
+  SMTP_PORT: "587"
+  SMTP_SECURE: "true"
+  SMTP_USER: ""
+  SMTP_PASS: ""
+  FROM_EMAIL: ""
+  EMAIL_RATE_LIMIT: "19"
+  EMAIL_RATE_DURATION: "3600000"
