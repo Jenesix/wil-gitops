@@ -1,9 +1,9 @@
 image:
-  tag: "dev-79e37bd7"
+  tag: "dev-7f26dec9"
 service:
   namespace: wil-dev
 extraEnv:
-  COMMIT_ID: "79e37bd7"
+  COMMIT_ID: "7f26dec9"
   NODE_ENV: development
   REDIS_URL: "redis.wil-dev.svc.cluster.local:6379"
   SMTP_HOST: "mail.spacemail.com"
@@ -20,6 +20,5 @@ extraEnvSecrets:
   SMTP_PASS:
     secretName: wil-service-mailer-secrets
     key: SMTP_PASS
-
 ingress:
   host: dev.wil.phraya.net
