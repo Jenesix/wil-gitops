@@ -20,3 +20,6 @@ extraEnvSecrets:
   SMTP_PASS:
     secretName: wil-service-mailer-secrets
     key: SMTP_PASS
+
+ingress:
+  host: dev.wil.phraya.net
