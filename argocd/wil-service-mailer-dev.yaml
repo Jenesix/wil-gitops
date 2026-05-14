@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wil-service-mailer-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/jenesix/wil-gitops
+    targetRevision: HEAD
+    path: apps/wil-service-mailer
+    helm:
+      releaseName: wil-service-mailer-dev
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: wil-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
