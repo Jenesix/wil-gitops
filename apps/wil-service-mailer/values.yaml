@@ -6,6 +6,7 @@ image:
 service:
   namespace: wil-dev
   replicas: 1
+  port: 6701
 
 resources:
   requests:
