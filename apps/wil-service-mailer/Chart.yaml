@@ -1,6 +1,6 @@
 apiVersion: v2
-name: wil-service
-description: Wil Service Helm Chart
+name: wil-service-mailer
+description: Wil Service Mailer Helm Chart
 version: 1.0.0
 appVersion: 1.0.0
 home: https://wil.phraya.net
