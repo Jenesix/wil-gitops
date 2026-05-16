@@ -1,12 +1,12 @@
 image:
-  tag: "uat-292158ce"
+  tag: "uat-ba0a232c"
 service:
   namespace: wil-uat
   replicas: 2
 ingress:
   host: uat.wil.phraya.net
 extraEnv:
-  COMMIT_ID: "292158ce"
+  COMMIT_ID: "ba0a232c"
   NODE_ENV: production
   DB_HOST: "postgresql.wil-uat.svc.cluster.local"
 extraEnvSecrets:
