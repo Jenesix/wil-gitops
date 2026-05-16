@@ -1,0 +1,31 @@
+image:
+  repository: harbor.wil.phraya.net/wil/wil-web
+  tag: "latest"
+  pullSecrets: harbor-registry-secret
+
+service:
+  namespace: wil-dev
+  port: 3000
+  replicas: 1
+  healthCheckPath: /health
+
+ingress:
+  host: ""
+  path: /
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "10m"
+  limits:
+    memory: "256Mi"
+    cpu: "500m"
+
+extraEnv:
+  NEXT_PUBLIC_API_URL: "http://wil-service.wil-dev.svc.cluster.local:6700/api/wil-service"
+  NODE_ENV: production
+
+extraEnvSecrets: {}
