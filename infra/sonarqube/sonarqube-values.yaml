@@ -24,17 +24,23 @@ persistence:
 
 resources:
   requests:
-    cpu: "50m"
-    memory: "256Mi"  # ← เพิ่ม
+    cpu: "200m"
+    memory: "2Gi"   # SonarQube ต้องการ minimum ~2Gi จริงๆ
   limits:
     cpu: "1000m"
-    memory: "2Gi"
+    memory: "4Gi"
 
 postgresql:
   resources:
     requests:
       cpu: "50m"
-      memory: "128Mi"  # ← เอา " ออก
+      memory: "256Mi"
     limits:
       cpu: "500m"
       memory: "512Mi"
+
+# เพิ่ม JVM heap ให้ตรงกับ memory ที่ให้ด้วย
+sonarProperties:
+  sonar.web.javaOpts: "-Xmx1g -Xms512m"
+  sonar.ce.javaOpts: "-Xmx1g -Xms512m"
+  sonar.search.javaOpts: "-Xmx1g -Xms512m -XX:MaxDirectMemorySize=256m"
