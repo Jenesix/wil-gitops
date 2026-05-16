@@ -18,7 +18,6 @@ CREATE TABLE public.appointment_visit (
   appointed_date date NOT NULL,
   created_at timestamp DEFAULT now() NOT NULL,
   approved_at timestamp NULL,
-  is_completed bool DEFAULT false NOT NULL,
   advisor_id int4 NOT NULL,
   CONSTRAINT appointment_visit_pk PRIMARY KEY (id),
   CONSTRAINT appointment_visit_advisor_fk FOREIGN KEY (advisor_id) REFERENCES public.advisor(id)
@@ -31,7 +30,7 @@ CREATE TABLE public.assignment_submission (
   created_at timestamp DEFAULT now() NOT NULL,
   assignment_id int4 NOT NULL,
   CONSTRAINT assignment_submission_pk PRIMARY KEY (id),
-  CONSTRAINT assignment_submission_assignment_fk FOREIGN KEY (user_id) REFERENCES public."assignment"(id),
+  CONSTRAINT assignment_submission_assignment_fk FOREIGN KEY (assignment_id) REFERENCES public."assignment"(id),
   CONSTRAINT assignment_submission_user_fk FOREIGN KEY (user_id) REFERENCES public."user"(id)
 );
 
@@ -52,8 +51,6 @@ CREATE TABLE public.company_branch (
   district varchar NOT NULL,
   province varchar NOT NULL,
   postal_code varchar NOT NULL,
-  latitude varchar NOT NULL,
-  longitude varchar NOT NULL,
   is_headquarter bool DEFAULT false NOT NULL,
   CONSTRAINT company_branch_pk PRIMARY KEY (id),
   CONSTRAINT company_branch_company_fk FOREIGN KEY (company_id) REFERENCES public.company(id) ON UPDATE CASCADE
@@ -120,16 +117,13 @@ CREATE TABLE public.staff (
 CREATE TABLE public.student (
   id serial4 NOT NULL,
   user_id int4 NOT NULL,
-  student_number int4 NOT NULL,
-  "year" int4 NULL,
+  student_number int8 NOT NULL,
   gpax float4 NULL,
   major_id int4 NULL,
-  academic_year int4 NOT NULL,
   CONSTRAINT student_gpax_check CHECK (((gpax >= (0.00)::double precision) AND (gpax <= (4.00)::double precision))),
   CONSTRAINT student_pk PRIMARY KEY (id),
   CONSTRAINT student_unique UNIQUE (student_number),
   CONSTRAINT student_unique_1 UNIQUE (user_id),
-  CONSTRAINT student_academic_year_fk FOREIGN KEY ("year") REFERENCES public.academic_year("year"),
   CONSTRAINT student_major_fk FOREIGN KEY (major_id) REFERENCES public.major(id),
   CONSTRAINT student_user_fk FOREIGN KEY (user_id) REFERENCES public."user"(id) ON UPDATE CASCADE
 );
@@ -154,14 +148,16 @@ CREATE TABLE public.internship (
   hr_contact int4 NOT NULL,
   mentor_contact int4 NULL,
   academic_year int4 NOT NULL,
-  recipient_name varchar NULL,
   email_sent timestamp NULL,
   company_replied timestamp NULL,
   status public."internship_status" NOT NULL,
   created_at timestamp DEFAULT now() NOT NULL,
   position_title varchar NOT NULL,
+  advisor_id int4 NOT NULL,
+  uploaded_file varchar NULL,
   CONSTRAINT internship_pk PRIMARY KEY (id),
   CONSTRAINT internship_academic_year_fk FOREIGN KEY (academic_year) REFERENCES public.academic_year("year"),
+  CONSTRAINT internship_advisor_fk FOREIGN KEY (advisor_id) REFERENCES public.advisor(id),
   CONSTRAINT internship_company_branch_fk FOREIGN KEY (branch_id) REFERENCES public.company_branch(id),
   CONSTRAINT internship_contact_fk FOREIGN KEY (hr_contact) REFERENCES public.contact(id),
   CONSTRAINT internship_contact_fk_1 FOREIGN KEY (mentor_contact) REFERENCES public.contact(id),

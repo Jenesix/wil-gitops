@@ -9,6 +9,10 @@ CREATE TABLE public.academic_year (
   CONSTRAINT newtable_pk PRIMARY KEY (year)
 );
 
+CREATE UNIQUE INDEX single_active_academic_year
+  ON public.academic_year USING btree (is_active)
+  WHERE (is_active = true);
+
 CREATE TABLE public.appointment_exam (
   id serial4 NOT NULL,
   appointed_date date NOT NULL,
