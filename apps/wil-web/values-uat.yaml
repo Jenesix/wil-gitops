@@ -1,15 +1,11 @@
 image:
-  tag: "uat-3e05a6ea"
-
+  tag: "uat-cbdc5a8e"
 service:
   namespace: wil-uat
-
 ingress:
   host: uat.wil.phraya.net
-
 extraEnv:
   NEXT_PUBLIC_API_URL: "https://uat.wil.phraya.net/api/wil-service"
-  COMMIT_ID: "3e05a6ea"
+  COMMIT_ID: "cbdc5a8e"
   NODE_ENV: production
-
 extraEnvSecrets: {}
