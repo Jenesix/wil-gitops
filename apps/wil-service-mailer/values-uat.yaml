@@ -1,10 +1,10 @@
 image:
-  tag: "uat-3e05a6ea"
+  tag: "uat-25ea022d"
 service:
   namespace: wil-uat
   replicas: 2
 extraEnv:
-  COMMIT_ID: "3e05a6ea"
+  COMMIT_ID: "25ea022d"
   NODE_ENV: production
   REDIS_URL: "redis.wil-uat.svc.cluster.local:6379"
   SMTP_HOST: "mail.spacemail.com"
@@ -14,7 +14,6 @@ extraEnv:
   FROM_EMAIL: "wil@phraya.net"
   EMAIL_RATE_LIMIT: "19"
   EMAIL_RATE_DURATION: "3600000"
-
 extraEnvSecrets:
   REDIS_PASSWORD:
     secretName: wil-service-mailer-secrets
@@ -22,6 +21,5 @@ extraEnvSecrets:
   SMTP_PASS:
     secretName: wil-service-mailer-secrets
     key: SMTP_PASS
-
 ingress:
   host: uat.wil.phraya.net
