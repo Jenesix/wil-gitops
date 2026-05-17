@@ -1,11 +1,11 @@
 image:
-  tag: "dev-0eb2d4f0"
+  tag: "dev-5cae9680"
 service:
   namespace: wil-dev
 ingress:
   host: dev.wil.phraya.net
 extraEnv:
-  COMMIT_ID: "0eb2d4f0"
+  COMMIT_ID: "5cae9680"
   NODE_ENV: development
   DB_HOST: "postgresql.wil-dev.svc.cluster.local"
 extraEnvSecrets:
