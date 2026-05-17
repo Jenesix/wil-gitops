@@ -1,11 +1,11 @@
 image:
-  tag: "dev-358de197"
+  tag: "dev-b0921a9d"
 service:
   namespace: wil-dev
 ingress:
   host: dev.wil.phraya.net
 extraEnv:
   NEXT_PUBLIC_API_URL: "https://dev.wil.phraya.net/api/wil-service"
-  COMMIT_ID: "358de197"
+  COMMIT_ID: "b0921a9d"
   NODE_ENV: development
 extraEnvSecrets: {}
