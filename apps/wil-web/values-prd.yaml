@@ -1,16 +1,12 @@
 image:
-  tag: "v1.0.0"
-
+  tag: "prd-d83a4775"
 service:
   namespace: wil-prd
   replicas: 3
-
 ingress:
   host: wil.phraya.net
-
 extraEnv:
   NEXT_PUBLIC_API_URL: "https://wil.phraya.net/api/wil-service"
-  COMMIT_ID: ""
+  COMMIT_ID: "d83a4775"
   NODE_ENV: production
-
 extraEnvSecrets: {}
