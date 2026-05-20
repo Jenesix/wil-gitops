@@ -1,15 +1,14 @@
 image:
-  tag: "v1.0.0"
+  tag: "prd-60a8d997"
 service:
   namespace: wil-prd
   replicas: 3
 ingress:
   host: api.wil.phraya.net
 extraEnv:
-  COMMIT_ID: ""
+  COMMIT_ID: "60a8d997"
   NODE_ENV: production
   DB_HOST: "postgresql.wil-prd.svc.cluster.local"
-
 extraEnvSecrets:
   DB_USER:
     secretName: wil-service-secret
