@@ -1,10 +1,10 @@
 image:
-  tag: "v1.0.0"
+  tag: "prd-ae9fbbef"
 service:
   namespace: wil-prd
   replicas: 3
 extraEnv:
-  COMMIT_ID: ""
+  COMMIT_ID: "ae9fbbef"
   NODE_ENV: production
   REDIS_URL: "redis.wil-prd.svc.cluster.local:6379"
   SMTP_HOST: "mail.spacemail.com"
@@ -14,7 +14,6 @@ extraEnv:
   FROM_EMAIL: "wil@phraya.net"
   EMAIL_RATE_LIMIT: "19"
   EMAIL_RATE_DURATION: "3600000"
-
 extraEnvSecrets:
   REDIS_PASSWORD:
     secretName: wil-service-mailer-secrets
@@ -22,6 +21,5 @@ extraEnvSecrets:
   SMTP_PASS:
     secretName: wil-service-mailer-secrets
     key: SMTP_PASS
-
 ingress:
   host: wil.phraya.net
