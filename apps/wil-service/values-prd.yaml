@@ -4,7 +4,7 @@ service:
   namespace: wil-prd
   replicas: 3
 ingress:
-  host: api.wil.phraya.net
+  host: wil.phraya.net
 extraEnv:
   COMMIT_ID: ""
   NODE_ENV: production
